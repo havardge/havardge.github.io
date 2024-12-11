@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>havardge.github.io</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        body {
+            padding-top: 50px;
+            background-color: #f8f9fa;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        h3 {
+            font-size: 1.75rem;
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+        }
+
+        h4 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+        }
+
+        h1, h2, h3, h4 {
+            line-height: 1.3;
+        }
+
+        .guess {
+            width: 50px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <h1>Frekvensanalyse</h1>
+    <p>
+        Den uleselige teksten i dagens oppgave er laget ved hjelp av substitusjonskryptering, der hvert tegn er erstattet med
+        et bestemt annet tegn.
+
+        Ved å se på frekvensene av tegnene i teksten, og samtidig tenke på hvilke tegn som opptrer hyppigst i det norske språket,
+        kan vi klare å dekryptere teksten.
+    </p>
+
+    <h2>Uleselig tekst</h2>
+    <div class="mb-3">
+        <textarea id="textAreaInput" class="form-control" rows="8"
+                  placeholder="Lim inn uleselig tekst her..."></textarea>
+    </div>
+
+    <h2>Frekvenser</h2>
+    <p>
+        I det engelske språket er disse bokstavene de hyppigst forekommende: e t a o i n
+    </p>
+    <table id="frequencies" class="table table-bordered">
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+
+    <h2>Dine gjetninger</h2>
+    <table id="guesses" class="table table-bordered">
+        <tbody>
+        </tbody>
+    </table>
+
+    <h2>Resultat</h2>
+    <p id="resultText"></p>
+
+    <h2 class="mb-4">Spørsmål</h2>
+    <div>
+        <div class="mb-3">
+            <span class="fw-bold">Inneholder kildeteksten mellomrom?</span>
+            <p>Ja</p>
+        </div>
+        <div class="mb-3">
+            <span class="fw-bold">Inneholder kildeteksten andre spesialtegn?</span>
+            <p>Nei, kun mellomrom</p>
+        </div>
+        <div class="mb-3">
+            <span class="fw-bold">Er det store og små bokstaver?</span>
+            <p>Nei, alt er små bokstaver</p>
+        </div>
+        <div class="mb-3">
+            <span class="fw-bold">Er kildeteksten på engelsk?</span>
+            <p>Ja</p>
+        </div>
+        <div class="mb-3">
+            <span class="fw-bold">Men hva med fraser som <code>i'm</code> og <code>don't</code></span>
+            <p>De er skrevet ut som <code>i am</code> og <code>do not</code></p>
+        </div>
+        <div class="mb-3">
+            <span class="fw-bold">Er teksten kryptert ved at hvert tegn mappes til et annet distinkt tegn?</span>
+            <p>Ja, det stemmer</p>
+        </div>
+        <div class="mb-3">
+            <span class="fw-bold">Kan jeg velge å betrakte krypteringen som det å anvende en injektiv funksjon over symbolene i teksten?</span>
+            <p>Ja, om ønskelig</p>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap JavaScript (required for accordion functionality) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+<script src="script.js"></script>
+</body>
+</html>
