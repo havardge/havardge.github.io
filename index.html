@@ -41,12 +41,6 @@
             line-height: 1.3;
         }
 
-        .guess {
-            width: 50px;
-            text-align: center;
-            font-size: 16px;
-        }
-
 
     </style>
 
@@ -58,8 +52,8 @@
         Den uleselige teksten i dagens oppgave er laget ved hjelp av substitusjonskryptering, der hvert tegn er erstattet med
         et bestemt annet tegn.
 
-        Ved å se på frekvensene av tegnene i teksten, og samtidig tenke på hvilke tegn som opptrer hyppigst i det norske språket,
-        kan vi klare å dekryptere teksten.
+        Ved å se på frekvensene av tegnene i teksten, og samtidig tenke på hvilke tegn som opptrer hyppigst i det engelske språket,
+        er vi godt rustet til å dekryptere teksten.
     </p>
 
     <h2>Uleselig tekst</h2>
@@ -68,16 +62,13 @@
                   placeholder="Lim inn uleselig tekst her..."></textarea>
     </div>
 
-    <h2>Frekvenser</h2>
-    <p>
-        I det engelske språket er disse bokstavene de hyppigst forekommende: e t a o i n
-    </p>
+    <h2>Frekvenser i teksten</h2>
     <table id="frequencies" class="table table-bordered">
         <thead></thead>
         <tbody></tbody>
     </table>
 
-    <h2>Dine gjetninger</h2>
+    <h2>Dine substitusjoner</h2>
     <table id="guesses" class="table table-bordered">
         <tbody>
         </tbody>
@@ -90,39 +81,39 @@
     <div>
         <div class="mb-3">
             <span class="fw-bold">Inneholder kildeteksten mellomrom?</span>
-            <p>Ja</p>
+            <p>Ja, men de er unntatt fra substitusjonskrypteringen.</p>
         </div>
         <div class="mb-3">
             <span class="fw-bold">Inneholder kildeteksten andre spesialtegn?</span>
-            <p>Nei, kun mellomrom</p>
+            <p>Nei, kun mellomrom.</p>
         </div>
         <div class="mb-3">
             <span class="fw-bold">Er det store og små bokstaver?</span>
-            <p>Nei, alt er små bokstaver</p>
+            <p>Nei, alt er små bokstaver.</p>
         </div>
         <div class="mb-3">
             <span class="fw-bold">Er kildeteksten på engelsk?</span>
-            <p>Ja</p>
+            <p>Ja, input til substitusjonskrypteringen er på engelsk. Men den <i>opprinnelige</i> teksten er på et annet språk.</p>
         </div>
         <div class="mb-3">
             <span class="fw-bold">Men hva med fraser som <code>i'm</code> og <code>don't</code></span>
-            <p>De er skrevet ut som <code>i am</code> og <code>do not</code></p>
+            <p>De er skrevet ut som <code>i am</code> og <code>do not</code>.</p>
         </div>
         <div class="mb-3">
             <span class="fw-bold">Er teksten kryptert ved at hvert tegn mappes til et annet distinkt tegn?</span>
-            <p>Ja, det stemmer</p>
+            <p>Ja, det stemmer.</p>
         </div>
         <div class="mb-3">
             <span class="fw-bold">Kan jeg velge å betrakte krypteringen som det å anvende en injektiv funksjon over symbolene i teksten?</span>
-            <p>Ja, om ønskelig</p>
+            <p>Ja, om ønskelig.</p>
+        </div>
+        <div class="mb-3">
+            <span class="fw-bold">Så, hva er det vi skal frem til her egentlig?</span>
+            <p>Forfatterens etternavn.</p>
         </div>
     </div>
 
-
-    <!-- Bootstrap JavaScript (required for accordion functionality) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
-
-
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

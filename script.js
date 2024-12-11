@@ -15,11 +15,14 @@
         // Clear result text if the textarea is empty
         if (text.trim() === "") {
             resultText.innerHTML = ""; // Clear result text
+            return; // Stop further processing
         }
 
-        // Calculate frequencies
+        // Calculate frequencies, ignoring whitespace
         for (const char of text) {
-            frequencyMap[char] = (frequencyMap[char] || 0) + 1;
+            if (char !== ' ') { // Ignore space
+                frequencyMap[char] = (frequencyMap[char] || 0) + 1;
+            }
         }
 
         // Sort by frequency in descending order
@@ -43,7 +46,7 @@
         const totalCharacters = text.length;
         sortedFrequencies.forEach(([, count]) => {
             const td = document.createElement("td");
-            const percentage = ((count / totalCharacters) * 100).toFixed(2);
+            const percentage = ((count / totalCharacters) * 100).toFixed(0);
             td.textContent = `${percentage}%`;
             frequencyRow.appendChild(td);
         });
@@ -51,6 +54,9 @@
 
         // Update the guesses table with sorted characters
         updateGuessesTable(sortedFrequencies.map(([char]) => char));
+
+        // Ensure the result is updated immediately after any input
+        updateResult();
     }
 
     // Function to dynamically generate the "Dine gjetninger" table
@@ -75,7 +81,7 @@
             input.type = "text";
             input.className = "guess";
             input.dataset.char = char; // Store the character for reference
-            input.style.width = "50px"; // Ensure compact input size
+            input.style.width = "30px"; // Ensure compact input size
             input.maxLength = 1; // Limit input to one character
             input.addEventListener("input", updateResult); // Update result on input
             td.appendChild(input);
@@ -92,8 +98,7 @@
         // Build a map of guesses
         const guessMap = {};
         inputs.forEach((input) => {
-            // Allow empty guesses (explicit whitespace is valid)
-            guessMap[input.dataset.char] = input.value;
+            guessMap[input.dataset.char] = input.value; // Allow empty guesses
         });
 
         // Generate the result text
@@ -101,6 +106,8 @@
         for (const char of text) {
             const mappedChar = guessMap[char];
             const span = document.createElement("span");
+
+            // Show the guessed character in bold if available, else show the original character
             if (mappedChar !== undefined && mappedChar !== "") {
                 span.innerHTML = `<b>${mappedChar}</b>`; // Bold for mapped characters
             } else {
